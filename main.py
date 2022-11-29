@@ -42,7 +42,7 @@ def calculate_probability_failures(densities, intervals):
 
 
 def main():
-    dest_file = '2.csv'
+    dest_file = '10.csv'
     input_list = create_input_list(dest_file)
     print(input_list)
     sorted_input_list = sorted(input_list)
@@ -71,25 +71,34 @@ def main():
     x1 = np.array(average_interval)
     y1 = np.array(failure_density)
     plt.subplot(2,2,1)
-    plt.plot(x1, y1, '-o')
+    plt.plot(x1, y1, '-o', label='fi')
+    plt.ylabel('Щільність відмов')
+    plt.xlabel('Інтервали часу')
     plt.grid()
+    plt.legend()
 
     x2 = np.array(average_interval)
     y2 = np.array(average_statistic_failure_density)
     plt.subplot(2, 2, 2)
-    plt.plot(x2, y2, '-o')
+    plt.plot(x2, y2, '-o', label='f^i')
+    plt.ylabel('Середньостатистична щільність')
+    plt.xlabel('Інтервали часу')
     plt.grid()
+    plt.legend()
 
     x3 = np.array(average_interval)
     y3 = np.array(probability_failures)
     plt.subplot(2, 1, 2)
-    plt.plot(x3, y3, '-o')
+    plt.plot(x3, y3, '-o', label='Fi')
 
     x4 = np.array(average_interval)
     y4 = np.array(probability_without_failures)
     plt.subplot(2, 1, 2)
-    plt.plot(x4, y4, '--o')
+    plt.plot(x4, y4, '--o', label='Pi')
+    plt.ylabel('Ймовірності')
+    plt.xlabel('Інтервали часу')
     plt.grid()
+    plt.legend()
 
     plt.show()
 
