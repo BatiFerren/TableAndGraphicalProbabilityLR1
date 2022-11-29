@@ -72,6 +72,9 @@ def main():
     y1 = np.array(failure_density)
     plt.subplot(2,2,1)
     plt.plot(x1, y1, '-o', label='fi')
+    # ------------- Annotated the markers -------------
+    for i in range(y1.__len__()):
+        plt.annotate(round(y1[i], 4), (x1[i], y1[i]))
     plt.ylabel('Щільність відмов')
     plt.xlabel('Інтервали часу')
     plt.grid()
@@ -81,6 +84,9 @@ def main():
     y2 = np.array(average_statistic_failure_density)
     plt.subplot(2, 2, 2)
     plt.plot(x2, y2, '-o', label='f^i')
+    # ------------- Annotated the markers -------------
+    for i in range(y2.__len__()):
+        plt.annotate(round(y2[i], 4), (x2[i], y2[i]))
     plt.ylabel('Середньостатистична щільність')
     plt.xlabel('Інтервали часу')
     plt.grid()
@@ -90,11 +96,16 @@ def main():
     y3 = np.array(probability_failures)
     plt.subplot(2, 1, 2)
     plt.plot(x3, y3, '-o', label='Fi')
+    # ------------- Annotated the markers -------------
+    for i in range(y3.__len__()):
+        plt.annotate(round(y3[i], 4), (x3[i], y3[i]))
 
     x4 = np.array(average_interval)
     y4 = np.array(probability_without_failures)
     plt.subplot(2, 1, 2)
-    plt.plot(x4, y4, '--o', label='Pi')
+    plt.plot(x4, y4, '--o', label='Pi')# ------------- Annotated the markers -------------
+    for i in range(y4.__len__()):
+        plt.annotate(round(y4[i], 4), (x4[i], y4[i]))
     plt.ylabel('Ймовірності')
     plt.xlabel('Інтервали часу')
     plt.grid()
